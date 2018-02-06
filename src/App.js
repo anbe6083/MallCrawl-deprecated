@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Button } from 'react-bootstrap';
+import Nightlife_Entry from './nightlife_entry.js';
+import {Alert} from 'react-bootstrap';
+
 class App extends Component {
   render() {
     return (
@@ -13,7 +16,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <Button bsStyle='success'> Hello </Button>
+        <Nightlife_Entry />
       </div>
     );
   }
