@@ -15,7 +15,7 @@ export default class Nightlife_Entry extends Component {
             <style type="text/css">{`
             .nightlife_entry {
                 margin: 10px;
-                background-color: #153243;
+                border: 1px solid;
             }
             .entry_img {
                 padding: 5px;
