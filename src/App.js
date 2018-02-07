@@ -12,7 +12,7 @@ class App extends Component {
 
   componentDidMount() {
     this.callApi()
-      .then(response => this.setState({ response: res.id }))
+      .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
   }
 
@@ -26,6 +26,7 @@ class App extends Component {
   };
 
   render() {
+    console.log(JSON.stringify(this.state.response));
     return (
       <div className="App">
         <header className="App-header">
