@@ -8,17 +8,24 @@ const apiKey = 'C4ISuj5muP0yv491qqKBna0j-hH6FL4g2iq1-5lbJQglSEGwIZ-s9eY0fjVJkQ9i
 
 const client = yelp.client(apiKey);
 
+//make a promise for the business info from the Yelp API
 let businesses = client.search({
- term:'Four Barrel Coffee',
- location: 'san francisco, ca'
+  term: 'bars',
+  location: 'san francisco, ca'
 }).then(response => {
- console.log(response.jsonBody.businesses[0]);
- app.get('/api/hello', (req, res) => {
-  console.log(response.jsonBody.businesses[0]);
-  res.send(response.jsonBody.businesses[0]);
-});
-}).catch(e => {
- console.log(e);
+  let reviews = client.reviews(response.jsonBody.businesses[0].id).then(response => {
+    console.log(response.jsonBody.reviews[0].text);
+    app.get('/api/yelp/reviews', (req, res) => {
+      res.send(response.jsonBody.reviews[0]);
+    })
+  }).catch(error => {
+    console.log(error);
+  });
+  app.get('/api/yelp', (req, res) => {
+    res.send(response.jsonBody.businesses[0]);
+  });
+}).catch(error => {
+  console.log(error);
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
