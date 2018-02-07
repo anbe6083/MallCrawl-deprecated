@@ -3,10 +3,16 @@ import logo from './logo.svg';
 import './App.css';
 import { Button } from 'react-bootstrap';
 import Nightlife_Entry from './nightlife_entry.js';
+import Nightlife_List from './nightlife_list.js';
 import { Alert } from 'react-bootstrap';
 
 class App extends Component {
+  
   state = {
+    'businesses': []
+  }
+
+  /*state = {
     'id': '',
     'name': 'test',
     'image_url': '',
@@ -41,10 +47,16 @@ class App extends Component {
     'display_phone': '',
     'distance': 0,
     'review': ''
-  };
+  };*/
 
   componentDidMount() {
+
     this.callApi('/api/yelp')
+    .then(res => this.setState({
+      businesses: res
+    }));
+
+    /*this.callApi('/api/yelp')
       .then(res => this.setState({
         id: res.id,
         name: res.name,
@@ -82,15 +94,15 @@ class App extends Component {
       }))
       .catch(error => {
         console.log(error);
-      });
+      });*/
 
-      this.callApi('/api/yelp/reviews')
+      /*this.callApi('/api/yelp/reviews')
       .then( res => this.setState({
         review: res.text
       }) )
       .catch(error => {
         console.log(error);
-      })
+      });*/
   }
 
   callApi = async (api) => {
@@ -113,8 +125,7 @@ class App extends Component {
         <p className='App-intro'>
           {this.state.response}
         </p>
-        <Nightlife_Entry name = {this.state.name} image_url = {this.state.image_url} location = {this.state.location} 
-        review = {this.state.review} />
+        <Nightlife_List businesses = {this.state.businesses}/>
       </div>
     );
   }

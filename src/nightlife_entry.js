@@ -62,9 +62,11 @@ export default class Nightlife_Entry extends Component {
                         {"\n"}
                         {this.props.location.state}
                     </div>
+                    {/*}
                     <div>
                         {this.props.review}
                     </div>
+                    */}
                 </div>
                 <Button bsStyle='success'> Going </Button>
             </Col>
