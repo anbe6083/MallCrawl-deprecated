@@ -63,7 +63,7 @@ export default class Nightlife_Entry extends Component {
                         {this.props.location.state}
                     </div>
                     <div>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt, leo sit amet malesuada volutpat, justo purus imperdiet quam, eget feugiat nisi nisi vel turpis. Suspendisse tempus lorem in nisi commodo condimentum. Donec facilisis feugiat est sed volutpat. Aenean fermentum tristique quam, eu efficitur velit bibendum non. Donec facilisis posuere tortor a lacinia. Morbi blandit ligula non feugiat pulvinar. Integer malesuada augue quis turpis porttitor pretium. Pellentesque aliquam ullamcorper arcu, vel vulputate felis fringilla sit amet. Nam mauris sapien, cursus pharetra porttitor non, faucibus nec ante. Nulla neque lorem, blandit at ligula sed, feugiat volutpat felis. Nulla pretium ipsum euismod mauris eleifend venenatis. Vestibulum vel vulputate ex, sit amet posuere mauris. Sed eleifend volutpat nisl id feugiat. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                        {this.props.review}
                     </div>
                 </div>
                 <Button bsStyle='success'> Going </Button>

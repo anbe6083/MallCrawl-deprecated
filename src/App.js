@@ -39,11 +39,12 @@ class App extends Component {
     },
     'phone': '',
     'display_phone': '',
-    'distance': 0
+    'distance': 0,
+    'review': ''
   };
 
   componentDidMount() {
-    this.callApi()
+    this.callApi('/api/yelp')
       .then(res => this.setState({
         id: res.id,
         name: res.name,
@@ -79,11 +80,21 @@ class App extends Component {
         display_phone: res.display_phone,
         distance: res.distance
       }))
-      .catch(err => console.log(err));
+      .catch(error => {
+        console.log(error);
+      });
+
+      this.callApi('/api/yelp/reviews')
+      .then( res => this.setState({
+        review: res.text
+      }) )
+      .catch(error => {
+        console.log(error);
+      })
   }
 
-  callApi = async () => {
-    const response = await fetch('/api/yelp');
+  callApi = async (api) => {
+    const response = await fetch(api);
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
@@ -92,6 +103,7 @@ class App extends Component {
   };
 
   render() {
+    console.log('review: ' +this.state.review);
     return (
       <div className='App'>
         <header className='App-header'>
@@ -101,7 +113,8 @@ class App extends Component {
         <p className='App-intro'>
           {this.state.response}
         </p>
-        <Nightlife_Entry name={this.state.name} image_url={this.state.image_url} location={this.state.location} />
+        <Nightlife_Entry name = {this.state.name} image_url = {this.state.image_url} location = {this.state.location} 
+        review = {this.state.review} />
       </div>
     );
   }
