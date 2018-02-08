@@ -11,8 +11,16 @@ const client = yelp.client(apiKey);
 //make a promise for the business info from the Yelp API
 let businesses = client.search({
   term: 'bars',
-  location: 'san francisco, ca'
+  location: 'santa clarita, ca'
 }).then(response => {
+  /*response.jsonBody.businesses.map( (business) => {
+    client.reviews( business.id )
+    .then(app.get('/api/yelp/reviews', (req,res) => {
+      res.send(business.reviews[0]);
+    })).catch(error => {
+      console.log(error);
+    })
+  } )*/
   /*let reviews = client.reviews(response.jsonBody.businesses[0].id).then(response => {
     console.log(response.jsonBody.reviews[0].text);
     app.get('/api/yelp/reviews', (req, res) => {

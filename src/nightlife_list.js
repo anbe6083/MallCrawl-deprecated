@@ -11,7 +11,8 @@ export default class Nightlife_List extends Component {
         return (
             <div>
                 {this.props.businesses.map( (business) => {
-                    return < Nightlife_Entry image_url = {business.image_url} location={business.location} name={business.name} />
+                    return < Nightlife_Entry key={business.id} image_url = {business.image_url} location={business.location} 
+                    peopleGoing = {this.props.peopleGoing} name={business.name} />
                 } )}
             </div>
         );

@@ -37,47 +37,49 @@ export default class Nightlife_Entry extends Component {
 
     render() {
         return (
-
-            <Col xs={6} md={3} className="nightlife_entry border border-dark rounded">
-                <style type="text/css">{`
+            <Grid>
+                <Row xs={6} md={3} className="nightlife_entry border border-dark rounded">
+                    <style type="text/css">{`
             .nightlife_entry {
                 margin: 10px;
                 border: 1px solid;
             }
             .entry_img {
                 padding: 5px;
-                width: 25%;
+                width: 50%;
                 margin-left:auto;
                 margin-right:auto;
             }
             `}</style>
-                <div>
                     <div>
-                        <Media.Heading align="top" className="entry_img">
-                            <Image src={this.props.image_url} responsive />
-                        </Media.Heading>
-                    </div>
-                    <div className="Entry_text">
-                        <h1 className='shop_name'>
-                            {this.props.name}
-                        </h1>
-                        <div className='address'>
-                            {this.props.location.address1}
-                            {"\n"}
-                            {this.props.location.city}
-                            {"\n"}
-                            {this.props.location.state}
+                        <div>
+                            <Media.Heading align="top" className="entry_img">
+                                <Image src={this.props.image_url} responsive />
+                            </Media.Heading>
                         </div>
-                        {/*}
+                        <div className="Entry_text">
+                            <h1 className='shop_name'>
+                                {this.props.name}
+                            </h1>
+                            <div className='address'>
+                                {this.props.location.address1}
+                                {"\n"}
+                                {this.props.location.city}
+                                {"\n"}
+                                {this.props.location.state}
+                            </div>
+
+                            {/*}
                     <div>
                         {this.props.review}
                     </div>
                     */}
+                        </div>
+                        <Button bsStyle='success'> {this.props.peopleGoing} Going </Button>
                     </div>
-                    <Button bsStyle='success'> Going </Button>
-                </div>
 
-            </Col>
+                </Row>
+            </Grid>
         )
     }
 }
