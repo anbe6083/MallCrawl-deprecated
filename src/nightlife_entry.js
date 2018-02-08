@@ -12,28 +12,28 @@ export default class Nightlife_Entry extends Component {
         super(props);
         this.state = {
             yelpData: [],
+            peopleAttending: 0,
+            isAttending: false
         }
+
+        this.updateNumberOfPeopleAttending = this.updateNumberOfPeopleAttending.bind(this);
     }
 
-    /*componentDidMount() {
-        let url = 'https://api.yelp.com/v3/businesses/search?latitude=37.7670169511878&longitude=-122.42184275'
-        fetch(url, {
-            method: "get",
-            headers: {
-              "Authorization": "Bearer C4ISuj5muP0yv491qqKBna0j-hH6FL4g2iq1-5lbJQglSEGwIZ-s9eY0fjVJkQ9iRBhNY5vsDiBQZz98UF0Eepu0gkgTxIm_mkFR1u3dUdlp5ragp7WjfZAlsBh6WnYx",
-              'dataType': 'jsonp'
-            },
-          }).then(function(response) {
-            response.status     //=> number 100–599
-            response.statusText //=> String
-            response.headers    //=> Headers
-            response.url        //=> String
-          
-            return response.text()
-          }, function(error) {
-            error.message //=> String
-          })
-    }*/
+    updateNumberOfPeopleAttending() {
+        console.log(this.state.isAttending);
+        if(this.state.isAttending) {
+          this.setState({
+            isAttending: false,
+            peopleAttending: --this.state.peopleAttending
+          });
+    
+        } else {
+          this.setState({
+            isAttending: true,
+            peopleAttending: ++this.state.peopleAttending
+          });
+        }
+      }
 
     render() {
         return (
@@ -75,7 +75,7 @@ export default class Nightlife_Entry extends Component {
                     </div>
                     */}
                         </div>
-                        <Button bsStyle='success'> {this.props.peopleGoing} Going </Button>
+                        <Button bsStyle='success' onClick={this.updateNumberOfPeopleAttending}> {this.state.peopleAttending} Going </Button>
                     </div>
 
                 </Row>

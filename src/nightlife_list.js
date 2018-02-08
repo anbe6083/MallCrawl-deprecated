@@ -7,12 +7,11 @@ export default class Nightlife_List extends Component {
     }
     
     render() {
-        console.log(this.props.businesses);
         return (
             <div>
                 {this.props.businesses.map( (business) => {
                     return < Nightlife_Entry key={business.id} image_url = {business.image_url} location={business.location} 
-                    peopleGoing = {this.props.peopleGoing} name={business.name} />
+                    name={business.name} />
                 } )}
             </div>
         );

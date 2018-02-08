@@ -6,9 +6,12 @@ import { Alert } from 'react-bootstrap';
 
 class App extends Component {
   
+  constructor(props) {
+    super(props);
+  }
+
   state = {
-    'businesses': [],
-    'peopleGoing': 0
+    businesses: [],
   }
 
   componentDidMount() {
@@ -29,7 +32,6 @@ class App extends Component {
   };
 
   render() {
-    console.log('review: ' +this.state.review);
     return (
       <div className='App'>
         <header className='App-header'>
@@ -39,7 +41,7 @@ class App extends Component {
         <p className='App-intro'>
           {this.state.response}
         </p>
-        <Nightlife_List businesses = {this.state.businesses} peopleGoing={this.state.peopleGoing} />
+        <Nightlife_List businesses = {this.state.businesses}  />
       </div>
     );
   }
