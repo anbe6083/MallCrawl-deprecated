@@ -4,47 +4,31 @@ import './App.css';
 import Nightlife_List from './nightlife_list.js';
 import { Alert } from 'react-bootstrap';
 import LocationForm from './locationForm.js';
+import {Router, Route} from 'react-router';
+import {BrowserRouter} from 'react-router-dom';
 import './bootstrap.min.css';
-
+import NavBar from './navBar.js';
+import Login from './login.js';
 class App extends Component {
-  
+
   constructor(props) {
     super(props);
   }
 
-  state = {
-    businesses: [],
-  }
-
-  componentDidMount() {
-
-    this.callApi('/api/yelp')
-    .then(res => this.setState({
-      businesses: res
-    }));
-  }
-
-  callApi = async (api) => {
-    const response = await fetch(api);
-    const body = await response.json();
-
-    if (response.status !== 200) throw Error(body.message);
-
-    return body;
-  };
+  
 
   render() {
     return (
-      <div className='App'>
-        <header className='App-header'>
-          <LocationForm />
-          <img src={logo} className='App-logo' alt='logo' />
-          <h1 className='App-title'>Welcome to React</h1>
-        </header>
-        <p className='App-intro'>
-          {this.state.response}
-        </p>
-        <Nightlife_List businesses = {this.state.businesses}  />
+      <div>
+        <NavBar />
+        <BrowserRouter>
+          <div>
+          <Route path={'/login'} component={Login}/>
+          <Route exact path={'/'} component={Nightlife_List} />
+          </div>
+        </BrowserRouter> 
+        {/* 
+        <Nightlife_List  /> */}
       </div>
     );
   }
