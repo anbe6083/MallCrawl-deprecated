@@ -38,11 +38,9 @@ export default class Nightlife_Entry extends Component {
 
     render() {
         return (
-            <Grid>
                         <div className="col-md-6">
                             <div className="card flex-md-row mb-4 box-shadow h-md-250">
                                 <div className="card-body d-flex flex-column align-items-start">
-                                    <strong className="d-inline-block mb-2 text-primary">World</strong>
                                     <h3 className="mb-0">
                                         <a className="text-dark" href="#">{this.props.name}</a>
                                     </h3>
@@ -54,14 +52,13 @@ export default class Nightlife_Entry extends Component {
                                         {this.props.location.state}
                                     </div>
                                     <p className="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#">Continue reading</a>
+                                    <Button bsStyle='success' onClick={this.updateNumberOfPeopleAttending}> {this.state.peopleAttending} Going </Button>
+                                    <a href="#">Check {this.props.name} on Yelp!</a>
                                 </div>
                                 <Image className="card-img-right flex-auto d-none d-md-block" style={{width: '50%', height: '50%'}} src={this.props.image_url} alt="Card image cap" responsive />
                             </div>
                         </div>
                     
-            </Grid>
-
         );
         {/*<div>
                                 <div>
@@ -87,7 +84,7 @@ export default class Nightlife_Entry extends Component {
                     </div>
                     
                         </div>
-                        <Button bsStyle='success' onClick={this.updateNumberOfPeopleAttending}> {this.state.peopleAttending} Going </Button>
+                        
                     </div>*/}
 
     }
