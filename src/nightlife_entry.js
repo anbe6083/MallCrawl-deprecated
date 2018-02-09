@@ -53,7 +53,7 @@ export default class Nightlife_Entry extends Component {
                                     </div>
                                     <p className="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
                                     <Button bsStyle='success' onClick={this.updateNumberOfPeopleAttending}> {this.state.peopleAttending} Going </Button>
-                                    <a href="#">Check {this.props.name} on Yelp!</a>
+                                    <a href={`${this.props.url}`} > {this.props.name} on Yelp!</a>
                                 </div>
                                 <Image className="card-img-right flex-auto d-none d-md-block" style={{width: '50%', height: '50%'}} src={this.props.image_url} alt="Card image cap" responsive />
                             </div>

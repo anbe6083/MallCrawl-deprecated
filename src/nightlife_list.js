@@ -33,7 +33,7 @@ export default class Nightlife_List extends Component {
             <div>
                 {this.state.businesses.map( (business) => {
                     return < Nightlife_Entry key={business.id} image_url = {business.image_url} location={business.location} 
-                    name={business.name} />
+                    name={business.name} url={business.url} />
                 } )}
             </div>
         );
