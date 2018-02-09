@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Nightlife_List from './nightlife_list.js';
 import { Alert } from 'react-bootstrap';
+import LocationForm from './locationForm.js';
 
 class App extends Component {
   
@@ -35,6 +36,7 @@ class App extends Component {
     return (
       <div className='App'>
         <header className='App-header'>
+          <LocationForm />
           <img src={logo} className='App-logo' alt='logo' />
           <h1 className='App-title'>Welcome to React</h1>
         </header>
