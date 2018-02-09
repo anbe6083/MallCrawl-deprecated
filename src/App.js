@@ -4,6 +4,7 @@ import './App.css';
 import Nightlife_List from './nightlife_list.js';
 import { Alert } from 'react-bootstrap';
 import LocationForm from './locationForm.js';
+import './bootstrap.min.css';
 
 class App extends Component {
   
