@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
 const authRoutes = require('./routes/auth-routes');
+const cookieSession = require('cookie-session');
+
 //Dependencies for yelp api
 const yelp = require('yelp-fusion');
 const apiKey = 'C4ISuj5muP0yv491qqKBna0j-hH6FL4g2iq1-5lbJQglSEGwIZ-s9eY0fjVJkQ9iRBhNY5vsDiBQZz98UF0Eepu0gkgTxIm_mkFR1u3dUdlp5ragp7WjfZAlsBh6WnYx';
@@ -18,6 +20,8 @@ mongoose.connect(keys.mongodb.dbURI, () => {
 })
 
 
+
+
 //----Start dependencies for passport and twitter login
 
 const passportSetup = require('../config/passport-setup');
@@ -30,15 +34,14 @@ app.set('view engine', 'ejs');
 // Use application-level middleware for common functionality, including
 // logging, parsing, and session handling.
 app.use(require('morgan')('combined'));
-app.use(require('cookie-parser')());
 app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('express-session')({ secret: 'secret', resave: true, saveUninitialized: true }));
+app.use(require('cookie-parser')());
 
-
-// Initialize Passport and restore authentication state, if any, from the
-// session.
+// Initialize Passport 
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 //routes
 app.use('/', routes);
