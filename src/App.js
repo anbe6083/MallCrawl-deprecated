@@ -1,21 +1,15 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Nightlife_List from './nightlife_list.js';
-import { Alert } from 'react-bootstrap';
-import LocationForm from './locationForm.js';
-import {Router, Route} from 'react-router';
+import {Route} from 'react-router';
 import {BrowserRouter} from 'react-router-dom';
 import './bootstrap.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 import NavBar from './navBar.js';
 import Login from './login.js';
+import Logout from './logout.js';
+import TwitterLogin from './twitterLogin.js'
 class App extends Component {
-
-  constructor(props) {
-    super(props);
-  }
-
-  
 
   render() {
     return (
@@ -23,7 +17,9 @@ class App extends Component {
         <NavBar />
         <BrowserRouter>
           <div>
-          <Route path={'/login'} component={Login}/>
+          <Route path={'/auth/login'} component={Login}/>
+          <Route path={'/auth/logout'} component={Logout}/>
+          <Route path={'/auth/twitter'} component={TwitterLogin}/>
           <Route exact path={'/'} component={Nightlife_List} />
           </div>
         </BrowserRouter> 

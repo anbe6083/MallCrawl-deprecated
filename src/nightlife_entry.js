@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
-import { Row } from 'react-bootstrap';
-import { Col } from 'react-bootstrap';
-import { Grid } from 'react-bootstrap';
-import { Media } from 'react-bootstrap';
 import { Image } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
-import thumbnail from './thumbnail.png';
 import './nightlife_entry_style.css';
-//import './bootstrap.min.css';
 export default class Nightlife_Entry extends Component {
     constructor(props) {
         super(props);
@@ -21,17 +15,17 @@ export default class Nightlife_Entry extends Component {
     }
 
     updateNumberOfPeopleAttending() {
-        console.log(this.state.isAttending);
+        let numOfPeopleAttending = this.state.peopleAttending;
         if (this.state.isAttending) {
             this.setState({
                 isAttending: false,
-                peopleAttending: --this.state.peopleAttending
+                peopleAttending: --numOfPeopleAttending
             });
 
         } else {
             this.setState({
                 isAttending: true,
-                peopleAttending: ++this.state.peopleAttending
+                peopleAttending: ++numOfPeopleAttending
             });
         }
     }
