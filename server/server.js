@@ -7,6 +7,17 @@ const yelp = require('yelp-fusion');
 const apiKey = 'C4ISuj5muP0yv491qqKBna0j-hH6FL4g2iq1-5lbJQglSEGwIZ-s9eY0fjVJkQ9iRBhNY5vsDiBQZz98UF0Eepu0gkgTxIm_mkFR1u3dUdlp5ragp7WjfZAlsBh6WnYx';
 const client = yelp.client(apiKey);
 const passport = require('passport');
+
+//mongoDB
+const mongoose = require('mongoose');
+const keys = require('../config/keys');
+
+//connect to mongoDB
+mongoose.connect(keys.mongodb.dbURI, () => {
+  console.log('connected to mongodb');
+})
+
+
 //----Start dependencies for passport and twitter login
 
 const passportSetup = require('../config/passport-setup');
